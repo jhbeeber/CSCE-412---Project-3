@@ -7,11 +7,19 @@ using namespace std;
 
 mutex mutexServerOutput;
 
+/**
+ * @brief Constructs a Webserver with a given server ID.
+ * @param serverID Unique identifier for the webserver.
+ */
 Webserver::Webserver(int serverID) : serverID(serverID), free(true) {
 
 
 }
 
+/**
+ * @brief Adds a web request to the server's queue and marks the server as busy.
+ * @param request The web request to process.
+ */
 void Webserver::processRequest(const Request& request) {
 
     lock_guard<mutex> lock(mutexServerOutput);
@@ -20,6 +28,9 @@ void Webserver::processRequest(const Request& request) {
     free = false;
 }
 
+/**
+ * @brief Processes all web requests in the server's queue sequentially.
+ */
 void Webserver::processQueue() {
 
     while (!queueRequest.empty()) {
@@ -43,6 +54,10 @@ void Webserver::processQueue() {
     free = true;
 }
 
+/**
+ * @brief Checks if the server is free to take new web requests.
+ * @return True if the server is free and the queue is empty, false otherwise.
+ */
 bool Webserver::isFree() const {
 
     return free && queueRequest.empty();

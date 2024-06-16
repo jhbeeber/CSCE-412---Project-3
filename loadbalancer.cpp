@@ -3,6 +3,12 @@
 #include <algorithm>
 using namespace std;
 
+/**
+ * @brief Constructs a LoadBalancer with a specified number of web servers.
+ * @param numberWebservers Number of web servers to manage.
+ *
+ * Initializes the load balancer and creates the specified number of web servers.
+ */
 LoadBalancer::LoadBalancer(int numberWebservers) {
 
     for (int i = 0; i < numberWebservers; ++i) {
@@ -11,6 +17,13 @@ LoadBalancer::LoadBalancer(int numberWebservers) {
     }
 }
 
+/**
+ * @brief Transfers a web request to an available web server or adds it to the queue if none are available.
+ * @param request The web request to be transferred.
+ *
+ * This method attempts to find a free web server to process the web request immediately.
+ * If no servers are available, the web request is added to a queue to be processed later.
+ */
 void LoadBalancer::transferRequest(const Request& request) {
     
     auto possibleServer = find_if(
@@ -34,6 +47,12 @@ void LoadBalancer::transferRequest(const Request& request) {
     }
 }
 
+/**
+ * @brief Processes web requests from the queue across all web servers.
+ *
+ * This method processes each server's queue and if a server is free and the main queue is not empty,
+ * it assigns a new web request from the queue to the server.
+ */
 void LoadBalancer::processEveryRequest() {
 
     for (unsigned int i = 0; i < servers.size(); ++i) {

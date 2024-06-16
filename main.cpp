@@ -11,6 +11,10 @@ using namespace std;
 
 mutex outputMutex;
 
+/**
+ * @brief Generates random web requests and sends them to the load balancer.
+ * @param loadbalancer The LoadBalancer object that will process the requests.
+ */
 void generateRandomRequests(LoadBalancer& loadbalancer) {
 
     random_device randomNumberGenerator;
@@ -29,6 +33,10 @@ void generateRandomRequests(LoadBalancer& loadbalancer) {
     }
 }
 
+/**
+ * @brief Main function to initialize and control the Load Balancer.
+ * @returns Execution status.
+ */
 int main() {
 
     int numberWebservers;
