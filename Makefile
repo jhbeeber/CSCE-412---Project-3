@@ -4,7 +4,7 @@ CFLAGS = -Wall -Werror # Compiler flags, enable all warnings and treat them as e
 LDFLAGS = -pthread # Linker flags, enable multithreading support
 
 # Default target that compiles the entire program
-all: myprogram
+all: clean myprogram
 
 # Linking the program
 myprogram: main.o LoadBalancer.o Webserver.o
