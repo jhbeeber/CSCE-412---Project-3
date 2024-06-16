@@ -29,7 +29,7 @@ void Webserver::processQueue() {
 
         {
             lock_guard<mutex> lock(mutexServerOutput);
-            cout << "Server " << serverID << " processing request " << request.requestIP << " in " << request.processingTime << endl;
+            cout << "Server " << serverID << " processing request " << request.requestIP << " in " << request.processingTime << " seconds" <<  endl;
         }
 
         this_thread::sleep_for(chrono::seconds(request.processingTime));
