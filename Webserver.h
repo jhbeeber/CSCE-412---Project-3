@@ -9,6 +9,7 @@ using namespace std;
 extern mutex mutexServerOutput;
 
 class Webserver {
+    
     public:
         Webserver(int serverID);
         void processRequest(const Request& request);
