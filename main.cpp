@@ -24,7 +24,7 @@ void generateRandomRequests(LoadBalancer& loadbalancer) {
 
     while (true) {
 
-        this_thread::sleep_for(chrono::seconds(dis(gen)));
+        this_thread::sleep_for(chrono::nanoseconds(dis(gen)));
         int requestIP = ip(gen);
         int responseIP = ip(gen);
         Request newRequest("192.168.1." + to_string(requestIP), "192.168.2." + to_string(responseIP), dis(gen));
@@ -58,10 +58,12 @@ int main() {
     thread requestThread(generateRandomRequests, ref(loadBalancer));
     requestThread.detach();
 
-    while (true) {
+    int clockCycles = 10000;
+    for (int j = 10; j < clockCycles; ++j) {
 
         loadBalancer.processEveryRequest();
-        this_thread::sleep_for(chrono::seconds(1));
+        this_thread::sleep_for(chrono::nanoseconds(1));
+        cout << "Clock Cycle: " << j + 1 << endl; 
     }
 
     return 0;
