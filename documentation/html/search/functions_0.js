@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isfree_0',['isFree',['../class_webserver.html#a7ff7f93620ae07085d01b6a28a5d5463',1,'Webserver']]]
+  ['getsize_0',['getSize',['../class_webserver.html#aefde351f3a82a048fab9cbb1ad072c55',1,'Webserver']]]
 ];

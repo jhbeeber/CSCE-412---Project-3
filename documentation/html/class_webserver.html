@@ -87,6 +87,7 @@ $(function(){ initResizable(false); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_webserver-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Webserver Class Reference</div></div>
 </div><!--header-->
@@ -99,18 +100,40 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3c79691955325055bcf73cb1337de4f1" id="r_a3c79691955325055bcf73cb1337de4f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c79691955325055bcf73cb1337de4f1">Webserver</a> (int serverID)</td></tr>
+<tr class="memitem:a3c79691955325055bcf73cb1337de4f1" id="r_a3c79691955325055bcf73cb1337de4f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c79691955325055bcf73cb1337de4f1">Webserver</a> (int <a class="el" href="#aeda03464d15349bec52ce5ba038f2566">serverID</a>)</td></tr>
 <tr class="memdesc:a3c79691955325055bcf73cb1337de4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_webserver.html" title="Manages the processing of web requests.">Webserver</a> with a given server ID.  <br /></td></tr>
 <tr class="separator:a3c79691955325055bcf73cb1337de4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade005916d0e7057d16220df7085f6dbb" id="r_ade005916d0e7057d16220df7085f6dbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade005916d0e7057d16220df7085f6dbb">processRequest</a> (const <a class="el" href="struct_request.html">Request</a> &amp;request)</td></tr>
-<tr class="memdesc:ade005916d0e7057d16220df7085f6dbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a web request and adds it to the processing queue.  <br /></td></tr>
-<tr class="separator:ade005916d0e7057d16220df7085f6dbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace140f41e214b80d8d5fbd2512908629" id="r_ace140f41e214b80d8d5fbd2512908629"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace140f41e214b80d8d5fbd2512908629">processQueue</a> ()</td></tr>
-<tr class="memdesc:ace140f41e214b80d8d5fbd2512908629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all web requests in the queue until it is empty.  <br /></td></tr>
-<tr class="separator:ace140f41e214b80d8d5fbd2512908629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576feda1800e41946a691fb50a7e5e6c" id="r_a576feda1800e41946a691fb50a7e5e6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a576feda1800e41946a691fb50a7e5e6c">processRequest</a> (const <a class="el" href="struct_request.html">Request</a> &amp;request, int currentClockCycle)</td></tr>
+<tr class="memdesc:a576feda1800e41946a691fb50a7e5e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a web request and adds it to the processing queue.  <br /></td></tr>
+<tr class="separator:a576feda1800e41946a691fb50a7e5e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c0c811274b225338ad60fbb04bf14d" id="r_ab8c0c811274b225338ad60fbb04bf14d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8c0c811274b225338ad60fbb04bf14d">processQueue</a> (const <a class="el" href="struct_request.html">Request</a> &amp;request, int currentClockCycle)</td></tr>
+<tr class="memdesc:ab8c0c811274b225338ad60fbb04bf14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all web requests in the queue until it is empty.  <br /></td></tr>
+<tr class="separator:ab8c0c811274b225338ad60fbb04bf14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ff7f93620ae07085d01b6a28a5d5463" id="r_a7ff7f93620ae07085d01b6a28a5d5463"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ff7f93620ae07085d01b6a28a5d5463">isFree</a> () const</td></tr>
 <tr class="memdesc:a7ff7f93620ae07085d01b6a28a5d5463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the webserver is free to take more requests.  <br /></td></tr>
 <tr class="separator:a7ff7f93620ae07085d01b6a28a5d5463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefde351f3a82a048fab9cbb1ad072c55" id="r_aefde351f3a82a048fab9cbb1ad072c55"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefde351f3a82a048fab9cbb1ad072c55">getSize</a> () const</td></tr>
+<tr class="memdesc:aefde351f3a82a048fab9cbb1ad072c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the web request queue.  <br /></td></tr>
+<tr class="separator:aefde351f3a82a048fab9cbb1ad072c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ad05765b4d287daf316b8a11932fa8f88" id="r_ad05765b4d287daf316b8a11932fa8f88"><td class="memItemLeft" align="right" valign="top"><a id="ad05765b4d287daf316b8a11932fa8f88" name="ad05765b4d287daf316b8a11932fa8f88"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>busyUntilClockCycle</b> = 0</td></tr>
+<tr class="memdesc:ad05765b4d287daf316b8a11932fa8f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer to track time until processed. <br /></td></tr>
+<tr class="separator:ad05765b4d287daf316b8a11932fa8f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4c951b8745ea0039de612fdd716d62" id="r_a0c4c951b8745ea0039de612fdd716d62"><td class="memItemLeft" align="right" valign="top"><a id="a0c4c951b8745ea0039de612fdd716d62" name="a0c4c951b8745ea0039de612fdd716d62"></a>
+queue&lt; <a class="el" href="struct_request.html">Request</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>queueRequest</b></td></tr>
+<tr class="memdesc:a0c4c951b8745ea0039de612fdd716d62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue of web requests to be processed. <br /></td></tr>
+<tr class="separator:a0c4c951b8745ea0039de612fdd716d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeda03464d15349bec52ce5ba038f2566" id="r_aeda03464d15349bec52ce5ba038f2566"><td class="memItemLeft" align="right" valign="top"><a id="aeda03464d15349bec52ce5ba038f2566" name="aeda03464d15349bec52ce5ba038f2566"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>serverID</b></td></tr>
+<tr class="memdesc:aeda03464d15349bec52ce5ba038f2566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifier for the webserver. <br /></td></tr>
+<tr class="separator:aeda03464d15349bec52ce5ba038f2566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ab5ca8bec76ebcfc2b69372a0c6f97" id="r_a90ab5ca8bec76ebcfc2b69372a0c6f97"><td class="memItemLeft" align="right" valign="top"><a id="a90ab5ca8bec76ebcfc2b69372a0c6f97" name="a90ab5ca8bec76ebcfc2b69372a0c6f97"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>free</b></td></tr>
+<tr class="memdesc:a90ab5ca8bec76ebcfc2b69372a0c6f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the webserver is free to take more web requests. <br /></td></tr>
+<tr class="separator:a90ab5ca8bec76ebcfc2b69372a0c6f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages the processing of web requests. </p>
@@ -142,6 +165,26 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aefde351f3a82a048fab9cbb1ad072c55" name="aefde351f3a82a048fab9cbb1ad072c55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefde351f3a82a048fab9cbb1ad072c55">&#9670;&#160;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Webserver::getSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the size of the web request queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the web request queue. </dd></dl>
+
+</div>
+</div>
 <a id="a7ff7f93620ae07085d01b6a28a5d5463" name="a7ff7f93620ae07085d01b6a28a5d5463"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ff7f93620ae07085d01b6a28a5d5463">&#9670;&#160;</a></span>isFree()</h2>
 
@@ -163,8 +206,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ace140f41e214b80d8d5fbd2512908629" name="ace140f41e214b80d8d5fbd2512908629"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace140f41e214b80d8d5fbd2512908629">&#9670;&#160;</a></span>processQueue()</h2>
+<a id="ab8c0c811274b225338ad60fbb04bf14d" name="ab8c0c811274b225338ad60fbb04bf14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c0c811274b225338ad60fbb04bf14d">&#9670;&#160;</a></span>processQueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,19 +215,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Webserver::processQueue </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_request.html">Request</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>currentClockCycle</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Processes all web requests in the queue until it is empty. </p>
-<p>Processes all web requests in the server's queue sequentially. </p>
+<p>Processes all web requests in the server's queue sequentially.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td>The web request to be processed. </td></tr>
+    <tr><td class="paramname">currentClockCycle</td><td>The current clock cycle for the web request.</td></tr>
+    <tr><td class="paramname">currentClockCycle</td><td>The current clock cycle for the web request. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ade005916d0e7057d16220df7085f6dbb" name="ade005916d0e7057d16220df7085f6dbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade005916d0e7057d16220df7085f6dbb">&#9670;&#160;</a></span>processRequest()</h2>
+<a id="a576feda1800e41946a691fb50a7e5e6c" name="a576feda1800e41946a691fb50a7e5e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a576feda1800e41946a691fb50a7e5e6c">&#9670;&#160;</a></span>processRequest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,8 +247,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Webserver::processRequest </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_request.html">Request</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_request.html">Request</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>currentClockCycle</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -202,8 +261,10 @@ Public Member Functions</h2></td></tr>
 <p>Adds a web request to the server's queue and marks the server as busy.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">request</td><td>The web request to be processed.</td></tr>
+    <tr><td class="paramname">request</td><td>The web request to be processed. </td></tr>
+    <tr><td class="paramname">currentClockCycle</td><td>The current clock cycle for the web request.</td></tr>
     <tr><td class="paramname">request</td><td>The web request to process. </td></tr>
+    <tr><td class="paramname">currentClockCycle</td><td>The current clock cycle for the web request. </td></tr>
   </table>
   </dd>
 </dl>

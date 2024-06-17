@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['processingtime_0',['processingTime',['../struct_request.html#ab2ed1f80cfac05d76ac9a7d215b3ac3c',1,'Request']]]
+  ['busyuntilclockcycle_0',['busyUntilClockCycle',['../class_webserver.html#ad05765b4d287daf316b8a11932fa8f88',1,'Webserver']]]
 ];

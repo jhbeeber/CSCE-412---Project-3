@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transferrequest_0',['transferRequest',['../class_load_balancer.html#a034c667be7b529d8b4d8cf04a72458c1',1,'LoadBalancer']]]
+  ['request_0',['Request',['../struct_request.html#af2eed2aa8cb879f2833822d2bc895702',1,'Request']]]
 ];
