@@ -20,11 +20,12 @@ LoadBalancer::LoadBalancer(int numberWebservers) {
 /**
  * @brief Transfers a web request to an available web server or adds it to the queue if none are available.
  * @param request The web request to be transferred.
+ * @param currentClockCycle The current clock cycle for the web request.
  *
  * This method attempts to find a free web server to process the web request immediately.
  * If no servers are available, the web request is added to a queue to be processed later.
  */
-void LoadBalancer::transferRequest(const Request& request) {
+void LoadBalancer::transferRequest(const Request& request, int currentClockCycle) {
     
     auto possibleServer = find_if(
         servers.begin(), 
@@ -37,35 +38,43 @@ void LoadBalancer::transferRequest(const Request& request) {
 
     if (possibleServer != servers.end()) {
 
-        possibleServer->processRequest(request);
+        possibleServer->processRequest(request, currentClockCycle);
     } 
     else {
 
         lock_guard<mutex> lock(mutexServerOutput);
-        cout << "Added request from " << request.requestIP << " to the queue " << endl;
+        cout << "Clock Cycle: " << currentClockCycle << "   " << "Added request from " << request.requestIP << " to the queue" << endl;
         queueRequest.push(request);
     }
 }
 
 /**
  * @brief Processes web requests from the queue across all web servers.
+ * @param currentClockCycle The current clock cycle for the web request.
  *
  * This method processes each server's queue and if a server is free and the main queue is not empty,
  * it assigns a new web request from the queue to the server.
  */
-void LoadBalancer::processEveryRequest() {
+void LoadBalancer::processEveryRequest(int currentClockCycle) {
 
-    for (unsigned int i = 0; i < servers.size(); ++i) {
+    for (Webserver& server : servers) {
+        
+        if (currentClockCycle >= server.busyUntilClockCycle && !server.queueRequest.empty()) {
 
-        if (!(servers[i].isFree())) {
+            Request request = server.queueRequest.front(); 
+            server.queueRequest.pop();
+            cout << "Clock Cycle: " << currentClockCycle << "   " << "Server " << server.serverID << " processed request " << request.requestIP << endl;
 
-            servers[i].processQueue();
-        } 
-        else if (!(queueRequest.empty())) {
+            if (server.queueRequest.empty()) {
 
-            Request request = queueRequest.front();
-            queueRequest.pop();
-            servers[i].processRequest(request);
+                server.free = true;
+            }
+            else {
+                
+                request = server.queueRequest.front(); 
+                server.busyUntilClockCycle = currentClockCycle + request.processingTime; 
+                server.processQueue(request, currentClockCycle);
+            }
         }
     }
 }

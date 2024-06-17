@@ -19,39 +19,29 @@ Webserver::Webserver(int serverID) : serverID(serverID), free(true) {
 /**
  * @brief Adds a web request to the server's queue and marks the server as busy.
  * @param request The web request to process.
+ * @param currentClockCycle The current clock cycle for the web request.
  */
-void Webserver::processRequest(const Request& request) {
+void Webserver::processRequest(const Request& request, int currentClockCycle) {
 
-    lock_guard<mutex> lock(mutexServerOutput);
-    cout << "Server " << serverID << " queuing request from " << request.requestIP << " to " << request.responseIP << " - " << request.processingTime << " seconds." << endl;
-    queueRequest.push(request);
-    free = false;
+    {
+        lock_guard<mutex> lock(mutexServerOutput);
+        cout << "Clock Cycle: " << currentClockCycle << "   " << "Server " << serverID << " queuing request from " << request.requestIP << " to " << request.responseIP << " in " << request.processingTime << " clock cycles" << endl;
+        queueRequest.push(request);
+        busyUntilClockCycle = request.processingTime + currentClockCycle;
+        free = false;
+    }
 }
 
 /**
  * @brief Processes all web requests in the server's queue sequentially.
+ * @param currentClockCycle The current clock cycle for the web request.
  */
-void Webserver::processQueue() {
+void Webserver::processQueue(const Request& request, int currentClockCycle) {
 
-    while (!queueRequest.empty()) {
-
-        Request request = queueRequest.front();
-        queueRequest.pop();
-
-        {
-            lock_guard<mutex> lock(mutexServerOutput);
-            cout << "Server " << serverID << " processing request " << request.requestIP << " in " << request.processingTime << " seconds" <<  endl;
-        }
-
-        this_thread::sleep_for(chrono::nanoseconds(request.processingTime));
-
-        {
-            lock_guard<mutex> lock(mutexServerOutput);
-            cout << "Server " << serverID << " processed request " << request.requestIP << endl;
-        }
+    {
+        lock_guard<mutex> lock(mutexServerOutput);
+        cout << "Clock Cycle: " << currentClockCycle << "   " << "Server " << serverID << " processing request " << request.requestIP << " in " << request.processingTime << " clock cycles" <<  endl;
     }
-    
-    free = true;
 }
 
 /**

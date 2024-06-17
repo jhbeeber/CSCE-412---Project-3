@@ -27,13 +27,16 @@ class Webserver {
         /**
          * @brief Takes a web request and adds it to the processing queue.
          * @param request The web request to be processed.
+         * @param currentClockCycle The current clock cycle for the web request.
          */
-        void processRequest(const Request& request);
+        void processRequest(const Request& request, int currentClockCycle);
 
         /**
          * @brief Processes all web requests in the queue until it is empty.
+         * @param request The web request to be processed.
+         * @param currentClockCycle The current clock cycle for the web request.
          */
-        void processQueue();
+        void processQueue(const Request& request, int currentClockCycle);
 
         /**
          * @brief Checks if the webserver is free to take more requests.
@@ -41,10 +44,10 @@ class Webserver {
          */
         bool isFree() const;
 
-    private:
+        int busyUntilClockCycle = 0; ///< Integer to track time until processed.
+        queue<Request> queueRequest; ///< Queue of web requests to be processed.
         int serverID; ///< Unique identifier for the webserver.
         bool free; ///< Indicates whether the webserver is free to take more web requests.
-        queue<Request> queueRequest; ///< Queue of web requests to be processed.
 }; 
 
 #endif

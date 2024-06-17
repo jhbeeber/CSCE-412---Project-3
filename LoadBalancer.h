@@ -26,13 +26,15 @@ class LoadBalancer {
         /**
          * @brief Adds a web request to the load balancer's queue.
          * @param request The web request to be added.
+         * @param currentClockCycle The current clock cycle for the web request.
          */
-        void transferRequest(const Request& request);
+        void transferRequest(const Request& request, int currentClockCycle);
 
         /**
          * @brief Processes every web request in the queue across all web servers.
+         * @param currentClockCycle The current clock cycle for the web request.
          */
-        void processEveryRequest();
+        void processEveryRequest(int currentClockCycle);
 
     private:
         vector<Webserver> servers; ///< Vector of Webserver objects representing the web servers.
