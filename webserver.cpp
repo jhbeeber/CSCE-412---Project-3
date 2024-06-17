@@ -52,3 +52,12 @@ bool Webserver::isFree() const {
 
     return free && queueRequest.empty();
 }
+
+/**
+ * @brief Gets the size of the web request queue.
+ * @return The size of the web request queue.
+ */
+int Webserver::getSize() const {
+
+    return queueRequest.size();
+}

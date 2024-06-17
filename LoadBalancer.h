@@ -36,7 +36,6 @@ class LoadBalancer {
          */
         void processEveryRequest(int currentClockCycle);
 
-    private:
         vector<Webserver> servers; ///< Vector of Webserver objects representing the web servers.
         queue<Request> queueRequest; ///< Queue of web requests awaiting processing.
 };

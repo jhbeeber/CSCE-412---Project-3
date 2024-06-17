@@ -42,9 +42,11 @@ void LoadBalancer::transferRequest(const Request& request, int currentClockCycle
     } 
     else {
 
-        lock_guard<mutex> lock(mutexServerOutput);
-        cout << "Clock Cycle: " << currentClockCycle << "   " << "Added request from " << request.requestIP << " to the queue" << endl;
-        queueRequest.push(request);
+        {
+            lock_guard<mutex> lock(mutexServerOutput);
+            cout << "Clock Cycle: " << currentClockCycle << "   " << "Added request from " << request.requestIP << " to the queue" << endl;
+            queueRequest.push(request);
+        }
     }
 }
 

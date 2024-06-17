@@ -44,6 +44,12 @@ class Webserver {
          */
         bool isFree() const;
 
+        /**
+         * @brief Gets the size of the web request queue.
+         * @return The size of the web request queue.
+         */
+        int getSize() const;
+
         int busyUntilClockCycle = 0; ///< Integer to track time until processed.
         queue<Request> queueRequest; ///< Queue of web requests to be processed.
         int serverID; ///< Unique identifier for the webserver.

@@ -3,6 +3,12 @@
         "ostream": "cpp",
         "chrono": "cpp",
         "iostream": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "atomic": "cpp",
+        "output.h": "c"
     }
 }
